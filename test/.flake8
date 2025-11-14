@@ -1,0 +1,7 @@
+[flake8]
+# 設置行最大長度 (例如 120 字元)
+max-line-length = 120
+# 忽略一些常見的警告/錯誤代碼 (例如：E501 行長度警告，如果上面已經設置了 max-line-length 則可省略)
+ignore = E203, W503
+# 排除不需要檢查的目錄 (例如：虛擬環境、建構目錄)
+exclude = .git,__pycache__,venv,build,dist
