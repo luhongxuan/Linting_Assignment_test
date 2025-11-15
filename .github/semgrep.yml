@@ -1,0 +1,17 @@
+# .github/workflows/semgrep.yml
+name: Semgrep SAST Scan
+
+on: [push, pull_request]
+
+jobs:
+  semgrep:
+    name: Run Semgrep
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: returntocorp/semgrep-action@v1 # 使用官方 Action
+        with:
+          # 使用 auto 模式或指定一個規則集，例如：p/python
+          config: auto 
+          # 將結果上傳到 GitHub Code Scanning Alerts
+          publishToken: ${{ secrets.SEMGREP_APP_TOKEN }} # 雖然這是可選的，但可以展示進階整合
